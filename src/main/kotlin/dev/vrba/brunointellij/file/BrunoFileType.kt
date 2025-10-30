@@ -1,14 +1,10 @@
 package dev.vrba.brunointellij.file
 
 import com.intellij.openapi.fileTypes.LanguageFileType
-import dev.vrba.brunointellij.file.BrunoIcons
 import dev.vrba.brunointellij.language.BrunoLanguage
 import javax.swing.Icon
 
-class BrunoFileType : LanguageFileType(BrunoLanguage.Companion.INSTANCE) {
-    companion object {
-        val INSTANCE = BrunoFileType()
-    }
+class BrunoFileType : LanguageFileType(BrunoLanguage.INSTANCE) {
 
     override fun getName(): String {
         return "Bruno"
@@ -22,7 +18,7 @@ class BrunoFileType : LanguageFileType(BrunoLanguage.Companion.INSTANCE) {
         return "bru"
     }
 
-    override fun getIcon(): Icon? {
+    override fun getIcon(): Icon {
         return BrunoIcons.FILE
     }
 }

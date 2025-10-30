@@ -29,7 +29,10 @@
                 language="Bruno"
                 extensions="bru"
                 implementationClass="dev.vrba.brunointellij.file.BrunoFileType"
-                fieldName="INSTANCE"
+        />
+        <lang.parserDefinition
+                language="Bruno"
+                implementationClass="dev.vrba.brunointellij.language.parser.BrunoParserDefinition"
         />
     </extensions>
 </idea-plugin>

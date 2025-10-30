@@ -1,0 +1,30 @@
+{
+  parserClass="dev.vrba.brunointellij.language.parser.BlockParser"
+  extends="com.intellij.extapi.psi.ASTWrapperPsiElement"
+
+  psiClassPrefix="Block"
+  psiImplClassSuffix="Impl"
+  psiPackage="dev.vrba.brunointellij.language.psi"
+  psiImplPackage="dev.vrba.brunointellij.language.psi.impl"
+
+  elementTypeHolderClass="dev.vrba.brunointellij.language.psi.BlockTypes"
+  elementTypeClass="dev.vrba.brunointellij.language.psi.BlockElementType"
+  tokenTypeClass="dev.vrba.brunointellij.language.psi.BlockTokenType"
+
+  tokens=[
+    LBRACE='{'
+    RBRACE='}'
+    COLON=':'
+    IDENTIFIER='regexp:[a-zA-Z_][a-zA-Z0-9_-]*'
+    BLOCK_CONTENT_TOKEN='regexp:.*'
+  ]
+}
+
+root ::= block*
+
+block ::= block_name LBRACE block_content? RBRACE {
+  pin=2
+}
+
+block_name ::= IDENTIFIER (COLON IDENTIFIER)?
+block_content ::= BLOCK_CONTENT_TOKEN
